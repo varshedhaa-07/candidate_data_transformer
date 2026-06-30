@@ -1,0 +1,21 @@
+{
+  "fields": [
+    "candidate_id",
+    "full_name",
+    "emails",
+    "phones",
+    "location",
+    "links",
+    "headline",
+    "years_experience",
+    "skills",
+    "experience",
+    "education"
+  ],
+  "rename": {},
+  "mapping": {},
+  "normalization": true,
+  "include_confidence": true,
+  "include_provenance": true,
+  "missing_value_policy": "null"
+}

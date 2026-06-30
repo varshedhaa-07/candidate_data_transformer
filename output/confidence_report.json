@@ -1,0 +1,7 @@
+{
+  "score": 0.95,
+  "source_reliability": 0.875,
+  "agreement": 1.0,
+  "validation": 1.0,
+  "explanation": "confidence = 0.4 * 0.88 source reliability + 0.4 * 1.00 agreement + 0.2 * 1.00 validation = 0.95"
+}

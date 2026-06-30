@@ -1,0 +1,174 @@
+# Candidate Profile Transformation 
+
+Candidate Profile Transformer is a modular pipeline that consolidates candidate information from multiple structured and unstructured sources into a single canonical profile. It normalizes data, resolves conflicts, tracks provenance, calculates confidence scores, and supports configurable JSON output.
+
+## Features
+
+- CSV Parser
+- Resume PDF Parser
+- Canonical Candidate Model
+- Phone & Date Normalization
+- Skill Canonicalization
+- Merge & Deduplication
+- Conflict Resolution
+- Confidence Scoring
+- Provenance Tracking
+- Runtime Configurable Output
+- Schema Validation
+
+# Installation
+
+- git clone https://github.com/varshedhaa-07/candidate-profile-transformer.git
+
+- cd candidate-profile-transformer
+
+- python -m venv venv
+
+- venv\Scripts\activate
+
+- pip install -r requirements.txt
+
+
+# Run Commands
+
+- python src/main.py \
+--csv inputs/recruiter.csv \
+--resume inputs/resume.pdf \
+--config config/default.json
+
+
+# Input
+
+name,email,phone,current_company,title
+Jane Doe,jane@example.com,9876543210,Acme Corp,Backend Engineer
+
+# Output
+
+{
+  "candidate_id": "merged:recruiter_csv:recruiter.csv:2|resume_pdf:resume",
+  "full_name": "Jane Doe",
+  "emails": [
+    "jane@example.com"
+  ],
+  "phones": [
+    "+919876543210"
+  ],
+  "location": null,
+  "links": [],
+  "headline": null,
+  "years_experience": null,
+  "skills": [],
+  "experience": [
+    {
+      "title": "Backend Engineer",
+      "company": "Acme Corp",
+      "location": null,
+      "start_date": null,
+      "end_date": null,
+      "is_current": null,
+      "description": null,
+      "skills": []
+    }
+  ],
+  "education": [],
+  "provenance": [
+    {
+      "source": "recruiter_csv",
+      "field_name": "full_name",
+      "source_field": "name",
+      "value": "Jane Doe",
+      "confidence": null
+    },
+    {
+      "source": "recruiter_csv",
+      "field_name": "emails",
+      "source_field": "email",
+      "value": "jane@example.com",
+      "confidence": null
+    },
+    {
+      "source": "recruiter_csv",
+      "field_name": "phones",
+      "source_field": "phone",
+      "value": "9876543210",
+      "confidence": null
+    },
+    {
+      "source": "recruiter_csv",
+      "field_name": "experience.company",
+      "source_field": "current_company",
+      "value": "Acme Corp",
+      "confidence": null
+    },
+    {
+      "source": "recruiter_csv",
+      "field_name": "experience.title",
+      "source_field": "title",
+      "value": "Backend Engineer",
+      "confidence": null
+    },
+    {
+      "source": "resume_pdf",
+      "field_name": "emails",
+      "source_field": "resume_text",
+      "value": "jane@example.com",
+      "confidence": null
+    },
+    {
+      "source": "resume_pdf",
+      "field_name": "phones",
+      "source_field": "resume_text",
+      "value": "+91 987 654 3210",
+      "confidence": null
+    },
+    {
+      "source": "merge_engine",
+      "field_name": "full_name",
+      "source_field": "selected_name_prefer_structured_source:recruiter_csv",
+      "value": "Jane Doe",
+      "confidence": null
+    },
+    {
+      "source": "merge_engine",
+      "field_name": "emails",
+      "source_field": "union_preserved_value",
+      "value": "jane@example.com",
+      "confidence": null
+    },
+    {
+      "source": "merge_engine",
+      "field_name": "phones",
+      "source_field": "union_preserved_value",
+      "value": "+919876543210",
+      "confidence": null
+    },
+    {
+      "source": "merge_engine",
+      "field_name": "experience",
+      "source_field": "merged_duplicate_records",
+      "value": {
+        "title": "Backend Engineer",
+        "company": "Acme Corp",
+        "location": null,
+        "start_date": null,
+        "end_date": null,
+        "is_current": null,
+        "description": null,
+        "skills": []
+      },
+      "confidence": null
+    },
+    {
+      "source": "merge_engine",
+      "field_name": "experience.company",
+      "source_field": "selected_current_company_highest_confidence_source",
+      "value": "Acme Corp",
+      "confidence": null
+    }
+  ],
+  "overall_confidence": 0.95
+}
+
+
+
+
