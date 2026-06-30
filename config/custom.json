@@ -1,0 +1,30 @@
+{
+  "fields": [
+    "candidate_id",
+    "full_name",
+    "emails",
+    "phones",
+    "headline",
+    "skills",
+    "experience"
+  ],
+  "rename": {
+    "candidate_id": "id",
+    "full_name": "name",
+    "emails": "contact_emails",
+    "phones": "contact_numbers",
+    "experience": "work_history"
+  },
+  "mapping": {
+    "current_role": "headline"
+  },
+  "normalization": [
+    "phones",
+    "skills",
+    "experience.start_date",
+    "experience.end_date"
+  ],
+  "include_confidence": true,
+  "include_provenance": false,
+  "missing_value_policy": "omit"
+}

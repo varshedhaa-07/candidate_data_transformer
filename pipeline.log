@@ -1,19 +1,19 @@
-2026-06-30 19:05:44,775 INFO cli - Pipeline started
-2026-06-30 19:05:44,780 INFO cli - Source loaded: csv path=inputs/recruiter.csv
-2026-06-30 19:05:44,781 INFO cli - Fields extracted from csv: ['candidate_id', 'full_name', 'emails', 'phones', 'experience']
-2026-06-30 19:05:45,215 INFO cli - Source loaded: resume path=inputs/resume.pdf
-2026-06-30 19:05:45,216 INFO cli - Fields extracted from resume: ['candidate_id', 'emails', 'phones']
-2026-06-30 19:05:45,216 INFO cli - Normalization completed for recruiter_csv:recruiter.csv:2: phones 1->1, skills=0
-2026-06-30 19:05:45,217 INFO cli - Normalization completed for resume_pdf:resume: phones 1->1, skills=0
-2026-06-30 19:05:45,217 INFO cli - Merge completed for 2 candidates
-2026-06-30 19:05:45,217 INFO cli - Merge decision: field=full_name reason=selected_name_prefer_structured_source:recruiter_csv value='Jane Doe'
-2026-06-30 19:05:45,217 INFO cli - Merge decision: field=emails reason=union_preserved_value value='jane@example.com'
-2026-06-30 19:05:45,217 INFO cli - Merge decision: field=phones reason=union_preserved_value value='+919876543210'
-2026-06-30 19:05:45,217 INFO cli - Merge decision: field=experience reason=merged_duplicate_records value=Experience(title='Backend Engineer', company='Acme Corp', location=None, start_date=None, end_date=None, is_current=None, description=None, skills=[])
-2026-06-30 19:05:45,217 INFO cli - Merge decision: field=experience.company reason=selected_current_company_highest_confidence_source value='Acme Corp'
-2026-06-30 19:05:45,217 INFO cli - Validation completed: errors=0 warnings=0
-2026-06-30 19:05:45,217 INFO cli - Confidence calculation: confidence = 0.4 * 0.88 source reliability + 0.4 * 1.00 agreement + 0.2 * 1.00 validation = 0.95
-2026-06-30 19:05:45,218 INFO cli - Projection config loaded: config\default.json
-2026-06-30 19:05:45,218 INFO cli - Projection completed
-2026-06-30 19:05:45,223 INFO cli - JSON outputs written to output
-2026-06-30 19:05:45,224 INFO cli - Pipeline completed successfully
+2026-06-30 22:47:44,101 INFO cli - Pipeline started
+2026-06-30 22:47:44,104 INFO cli - Source loaded: csv path=inputs/recruiter.csv
+2026-06-30 22:47:44,104 INFO cli - Fields extracted from csv: ['candidate_id', 'full_name', 'emails', 'phones', 'experience']
+2026-06-30 22:47:44,312 INFO cli - Source loaded: resume path=inputs/resume.pdf
+2026-06-30 22:47:44,312 INFO cli - Fields extracted from resume: ['candidate_id', 'emails', 'phones']
+2026-06-30 22:47:44,312 INFO cli - Normalization completed for recruiter_csv:recruiter.csv:2: phones 1->1, skills=0
+2026-06-30 22:47:44,313 INFO cli - Normalization completed for resume_pdf:resume: phones 1->1, skills=0
+2026-06-30 22:47:44,313 INFO cli - Merge completed for 2 candidates
+2026-06-30 22:47:44,313 INFO cli - Merge decision: field=full_name reason=selected_name_prefer_structured_source:recruiter_csv value='Jane Doe'
+2026-06-30 22:47:44,313 INFO cli - Merge decision: field=emails reason=union_preserved_value value='jane@example.com'
+2026-06-30 22:47:44,313 INFO cli - Merge decision: field=phones reason=union_preserved_value value='+919876543210'
+2026-06-30 22:47:44,313 INFO cli - Merge decision: field=experience reason=merged_duplicate_records value=Experience(title='Backend Engineer', company='Acme Corp', location=None, start_date=None, end_date=None, is_current=None, description=None, skills=[])
+2026-06-30 22:47:44,313 INFO cli - Merge decision: field=experience.company reason=selected_current_company_highest_confidence_source value='Acme Corp'
+2026-06-30 22:47:44,313 INFO cli - Validation completed: errors=0 warnings=0
+2026-06-30 22:47:44,313 INFO cli - Confidence calculation: confidence = 0.4 * 0.88 source reliability + 0.4 * 1.00 agreement + 0.2 * 1.00 validation = 0.95
+2026-06-30 22:47:44,313 INFO cli - Projection config loaded: config\custom.json
+2026-06-30 22:47:44,314 INFO cli - Projection completed
+2026-06-30 22:47:44,316 INFO cli - JSON outputs written to output
+2026-06-30 22:47:44,317 INFO cli - Pipeline completed successfully
